@@ -1,0 +1,24 @@
+@model IEnumerable<CourseRegistration>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th style="width: 150;">Kurs Kayıt Numarası</th>
+                <th style="width: 150;">Öğrenci İsmi</th>
+                <th style="width: 150;">Kurs Başlığı</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                    <td>@Html.DisplayFor(modelItem => item.student.NameSurname)</td>
+                    <td>@Html.DisplayFor(modelItem => item.course.CourseTitle)</td>
+                    <td>
+                        <a asp-controller="" asp-action=""  class="btn btn-outline-secondary">Details</a>
+                        <a asp-controller="" asp-action=""  class="btn btn-outline-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>

@@ -1,0 +1,11 @@
+@model Instructor
+<div class="card border">
+    <div class="card-body">
+        <form asp-action="DeleteInstructor" method="post">
+            <input type="hidden" asp-for="Id">
+            <p>@Model.NameSurname 'i silmek istediğinizden emin misiniz?</p>
+            <button type="submit" class=" btn btn-outline-danger">Delete</button>
+            <a asp-controller="Instructor" asp-action="InstructorList" class="btn btn-outline-secondary">List</a>
+        </form>
+    </div>
+</div>

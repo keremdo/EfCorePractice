@@ -1,0 +1,33 @@
+﻿@model List<Student>
+
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Student Number</th>
+            <th scope="col">Student Name</th>
+            <th scope="col">Student Surname</th>
+            <th scope="col">Student Email</th>
+            <th scope="col">Student Phone</th>
+          </tr>
+        </thead>
+        <tbody>
+            @{
+               int i = 1;
+            }
+          <tr>
+            @foreach(var s in Model)
+            {
+                <th scope="row">@{
+                    @i;
+                    i++;
+                }
+                </th>
+                <th scope="row">@s.StudentName</th>
+                <th scope="row">@s.StudentSurName</th>
+                <th scope="row">@s.Email</th>
+                <th scope="row">@s.PhoneNumber</th>
+            }
+          </tr>
+          
+        </tbody>
+      </table>

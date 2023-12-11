@@ -1,0 +1,40 @@
+@model Course
+<div class="row">
+    <div class="col-8">
+        <div class="mb-3">
+            <form asp-controller="Course" asp-action="EditCourse" method="post">
+                <input type="hidden" asp-for="Id">
+                <div class="form-group">
+                    <label asp-for="CourseName">Course Name</label>
+                    <input class="form-control" asp-for="CourseName">
+                </div>
+                <div class="form-group">
+                    <label asp-for="CourseTitle">Course Title</label>
+                    <input class="form-control" asp-for="CourseTitle">
+                </div>
+                <div class="form-group">
+                    <label asp-for="InstructorId" class="form-label">Instructor Name</label>
+                    <select asp-for="InstructorId" asp-items="ViewBag.Instructors" class="form-select">
+                        <option value="">Choose</option>
+                    </select>
+                </div>
+                <div class="mt-3">
+                    <button type="submit" class="btn btn-outline-secondary">
+                        Modify
+                    </button>
+                    <a asp-controller="Course" asp-action="CourseList" class="btn btn-outline-secondary">List</a>
+                </div>
+            </form>
+        </div>
+    </div>   
+    <div class="col-4">
+        <h4>Student List</h4>
+        <hr>
+        @foreach(var item in @Model.courseRegistrations)
+        {
+            <li>
+                @item.student.NameSurname
+            </li>
+        }
+    </div>   
+</div>

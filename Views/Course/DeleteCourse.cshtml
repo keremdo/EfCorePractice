@@ -1,0 +1,11 @@
+@model Course
+<div class="card border">
+    <div class="card-body">
+        <p>@Model.CourseName isimli kursu silmek istediğinize emin misini?</p>
+        <form asp-controller="Course" asp-action="DeleteCourse" method="post">
+            <input type="hidden" asp-for="Id">
+            <button type="submit" class="btn btn-outline-danger">Delete</button>
+            <a asp-controller="Course" asp-action="CourseList" class="btn btn-outline-primary">List</a>
+        </form>
+    </div>
+</div>

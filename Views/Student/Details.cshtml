@@ -1,0 +1,28 @@
+@model Student
+<div class="row">
+    <div class="col-8">
+        <main class="text-center ">
+            <div class="card border ">
+                <div class="card-body">
+                    <h1 class="h4">Student Info</h1>
+                    <p>@Model.StudentName</p>
+                    <p>@Model.StudentSurName</p>
+                    <p>@Model.Email</p>
+                    <p>@Model.PhoneNumber</p>
+                    <a asp-controller="Student" asp-action="EditStudent" asp-route-id="@Model.Id" class="btn btn-outline-secondary">Edit</a>
+                    <a asp-controller="Student" asp-action="StudentList" class="btn btn-outline-secondary">List</a>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div class="col-4">
+        <h4>Course Info</h4>
+        <hr>
+        @foreach(var item in @Model.courseRegistrations)
+        {
+            <li>
+                @item.course.CourseTitle
+            </li>
+        }
+    </div>
+</div>
